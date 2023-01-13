@@ -5,9 +5,9 @@ module Descartes
     get '/cats/:count/?' do
       if json?
         content_type 'application/json'
-        @cats = []
-        begin
-          doc = Nokogiri::HTML(open("http://thecatapi.com/api/images/get?format=xml&size=small&results_per_page=#{params[:count]}"))
+        @cats = [] # comment
+        begin #comment 
+          doc = Nokogiri::HTML(open("http://thecatapi.com/api/images/get?format=xml&size=small&results_per_page=#{params[:count]}")) # comment
           doc.css('url').each do |kitty|
             @cats << kitty.content
           end
